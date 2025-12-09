@@ -1,0 +1,31 @@
+version = "0.0.1"
+environment = "development"
+port = 59270
+httpsPort = 59271
+domain = "localhost"
+
+
+[mq]
+db = 10
+password = ""
+port = 0
+url = ""
+
+[oss]
+endpoint = "xxxxxxxx"
+accessKey = "xxxxxxxxx"
+secretAccessKey = "xxxxxxxxx"
+secure = true
+bucketName = "xxxx"
+
+[postgresql]
+db = 0
+password = ""
+port = 0
+url = ""
+
+[redis]
+db = 0
+password = ""
+port = 0
+url = ""
