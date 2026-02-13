@@ -43,10 +43,10 @@ func main() {
 
 	wg.Wait()
 
+	routers.Init()
+
 	// 初始化基础数据（权限、角色等）
 	models.SeedDatabase()
-
-	routers.Init()
 
 	slog.Info("Service Started")
 

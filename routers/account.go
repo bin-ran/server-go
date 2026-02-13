@@ -356,9 +356,7 @@ func handleGetAvatarUploadURL(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	url, err := managers.RustFSClient.Client.GetPreSignedUploadURL(
-		ctx,
-		managers.RustFSClient.Bucket, "avatar/"+userID+"."+ext, time.Hour)
+	url, err := managers.RustFSClient.PresignPut(ctx, managers.RustFSClient.Bucket, "avatar/"+userID+"."+ext, time.Hour)
 	if err != nil {
 		slog.Error("Failed to get pre signed upload url", "err", err)
 		http.Error(w, "Failed to get upload URL", http.StatusInternalServerError)

@@ -98,9 +98,7 @@ func (user *User) GetAvatarURL(ctx context.Context) string {
 		return ""
 	}
 
-	url, err := managers.RustFSClient.Client.GetPreSignedDownloadURL(
-		ctx,
-		managers.RustFSClient.Bucket, user.AvatarPath, 7*24*time.Hour)
+	url, err := managers.RustFSClient.PresignGet(ctx, managers.RustFSClient.Bucket, user.AvatarPath, 7*24*time.Hour)
 	if err != nil {
 		return ""
 	}
